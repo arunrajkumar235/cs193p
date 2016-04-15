@@ -10,6 +10,24 @@
 
 @implementation PlayingCard
 
+- (int) match:(NSArray *)otherCards
+{
+    int score = 0;
+    
+    if([otherCards count] == 1) {
+        PlayingCard *otherCard = [otherCards firstObject];
+        if(otherCard.rank == self.rank) {
+            score = 4;
+        }
+        else if(otherCard.suit == self.suit) {
+            score = 1;
+        }
+        NSLog(@"Chosen Card: %@, Other Card: %@", self.contents, otherCard.contents);
+    }
+    
+    return score;
+}
+
 + (NSArray *)rankStrings
 {
     return @[@"?",@"A",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"J",@"Q",@"K"];
@@ -31,7 +49,9 @@
 - (NSString *) contents
 {
     NSArray * rankStrings = [PlayingCard rankStrings];
-    return [rankStrings[self.rank] stringByAppendingString: self.suit];
+    NSString * tempContents = [rankStrings[self.rank] stringByAppendingString: self.suit];
+    //NSLog(@"%@ - %lu", tempContents, self.rank);
+    return tempContents;
 }
 
 @synthesize suit = _suit;

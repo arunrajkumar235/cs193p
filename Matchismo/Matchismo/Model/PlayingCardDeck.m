@@ -23,6 +23,7 @@
                 PlayingCard *card = [[PlayingCard alloc] init];
                 card.rank = rank;
                 card.suit = suit;
+                //NSLog(@"%lu%@", (unsigned long)rank, suit);
                 [self addCard:card];
             }
         }
