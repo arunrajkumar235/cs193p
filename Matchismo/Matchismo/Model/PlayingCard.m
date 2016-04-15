@@ -22,7 +22,29 @@
         else if(otherCard.suit == self.suit) {
             score = 1;
         }
-        NSLog(@"Chosen Card: %@, Other Card: %@", self.contents, otherCard.contents);
+    }
+    else if ([otherCards count] == 2) {
+        PlayingCard *otherCard1 = otherCards[0], *otherCard2 = otherCards[1];
+        if(otherCard1.rank == self.rank) {
+            score += 4;
+        }
+        if(otherCard1.suit == self.suit) {
+            score += 1;
+        }
+        
+        if(otherCard1.rank == otherCard2.rank) {
+            score += 4;
+        }
+        if(otherCard1.suit == otherCard2.suit) {
+            score += 1;
+        }
+        
+        if(otherCard2.rank == self.rank) {
+            score += 4;
+        }
+        if(otherCard2.suit == self.suit) {
+            score += 1;
+        }
     }
     
     return score;

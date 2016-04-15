@@ -16,13 +16,17 @@
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *matchModeButton;
+@property (weak, nonatomic) IBOutlet UILabel *flipDescription;
 @end
 
 @implementation ViewController
 
 - (CardMatchingGame *) game {
-    if(!_game) _game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count]
-                                                         usingDeck: [self createDeck]];
+    if(!_game) {
+        _game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count]
+                                                  usingDeck: [self createDeck]];
+        _game.cardMatchCount = self.matchModeButton.selectedSegmentIndex + 2;
+    }
     return _game;
 }
                     
@@ -39,10 +43,28 @@
         [cardButton setEnabled:!card.isMatched];
         self.scoreLabel.text = [NSString stringWithFormat:@"Score: %ld", self.game.score];
     }
-}
-
-- (IBAction)touchMatchMode:(UISegmentedControl *)sender {
     
+    NSString *description = @"";
+    if(self.game.lastChosenCards.count) {
+        NSMutableArray *cardContents = [[NSMutableArray alloc] init];
+        for(Card *card in self.game.lastChosenCards) {
+            [cardContents addObject:card.contents];
+        }
+        description = [cardContents componentsJoinedByString:@" "];
+        
+        if(self.game.lastScore>0) {
+            description = [NSString stringWithFormat:@"Matched %@ for %lu points.", description, self.game.lastScore];
+        }
+        else if(self.game.lastScore<0) {
+            description = [NSString stringWithFormat:@"%@ don't match. %lu point penalty!", description, -self.game.lastScore];
+        }
+    }
+    
+    self.flipDescription.text = description;
+    
+}
+- (IBAction)touchMatchMode:(UISegmentedControl *)sender {
+    _game = nil;
 }
 
 - (IBAction)touchRedeal:(UIButton *)sender {
@@ -63,7 +85,6 @@
 {
     self.matchModeButton.enabled = NO;
     NSUInteger chosenButtonIndex = [self.cardButtons indexOfObject:sender];
-    //NSLog(@"chosenButtonIndex: %ld", chosenButtonIndex);
     [self.game chooseCardAtIndex:chosenButtonIndex];
     [self updateUI];
 }
