@@ -16,10 +16,18 @@
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *matchModeButton;
+
+@property (strong, nonatomic) NSMutableArray *descriptionHistory;
 @property (weak, nonatomic) IBOutlet UILabel *flipDescription;
+@property (weak, nonatomic) IBOutlet UISlider *historySlider;
 @end
 
 @implementation ViewController
+
+- (NSMutableArray *) descriptionHistory {
+    if(!_descriptionHistory) _descriptionHistory = [[NSMutableArray alloc] init];
+    return _descriptionHistory;
+}
 
 - (CardMatchingGame *) game {
     if(!_game) {
@@ -58,11 +66,30 @@
         else if(self.game.lastScore<0) {
             description = [NSString stringWithFormat:@"%@ don't match. %lu point penalty!", description, -self.game.lastScore];
         }
+        
+        [self.descriptionHistory addObject:description];
+        self.historySlider.maximumValue = self.descriptionHistory.count;
+        self.historySlider.value = self.descriptionHistory.count;
     }
+    else {
+        self.historySlider.value = 0;
+        self.historySlider.maximumValue = 0;
+        [self.descriptionHistory removeAllObjects];
+    }
+    
     
     self.flipDescription.text = description;
     
 }
+- (IBAction)changeHistorySlider:(UISlider *)sender {
+    int index = floor(sender.value);
+    NSUInteger descriptionCount = [self.descriptionHistory count];
+    index = index >= descriptionCount ? (int)descriptionCount - 1 : index;
+    if(index >= 0) {
+        self.flipDescription.text = self.descriptionHistory[index];
+    }
+}
+
 - (IBAction)touchMatchMode:(UISegmentedControl *)sender {
     _game = nil;
 }
