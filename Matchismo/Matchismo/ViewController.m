@@ -7,22 +7,44 @@
 //
 
 #import "ViewController.h"
-#import "PlayingCardDeck.h"
-#import "CardMatchingGame.h"
+#import "Deck.h"
+#import "HistoryViewController.h"
 
 @interface ViewController ()
 @property (nonatomic) Deck *deck;
-@property (strong, nonatomic) CardMatchingGame *game;
-@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
-@property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *matchModeButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *showHistoryBarButton;
 
-@property (strong, nonatomic) NSMutableArray *descriptionHistory;
-@property (weak, nonatomic) IBOutlet UILabel *flipDescription;
-@property (weak, nonatomic) IBOutlet UISlider *historySlider;
 @end
 
 @implementation ViewController
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:@"Show History"]) {
+        if([segue.destinationViewController isKindOfClass:[HistoryViewController class]]) {
+            HistoryViewController *hvc = (HistoryViewController *)segue.destinationViewController;
+            
+            NSMutableAttributedString *historyText = [[NSMutableAttributedString alloc] init];
+            for(NSAttributedString *description in self.descriptionHistory) {
+                if(historyText.length) {
+                    [historyText appendAttributedString:[[NSAttributedString alloc] initWithString:@"\r"]];
+                }
+                [historyText appendAttributedString:description];
+            }
+            
+            hvc.navigationItem.title = @"History";
+            [hvc setHidesBottomBarWhenPushed: YES];
+            hvc.historyText = historyText;
+        }
+    }
+    
+    
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self.flipDescription setText: @""];
+    [self updateUI];
+}
 
 - (NSMutableArray *) descriptionHistory {
     if(!_descriptionHistory) _descriptionHistory = [[NSMutableArray alloc] init];
@@ -32,14 +54,13 @@
 - (CardMatchingGame *) game {
     if(!_game) {
         _game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count]
-                                                  usingDeck: [self createDeck]];
-        _game.cardMatchCount = self.matchModeButton.selectedSegmentIndex + 2;
+                                                  usingDeck:[self createDeck]];
     }
     return _game;
 }
                     
 - (Deck *)createDeck {
-    return [[PlayingCardDeck alloc] init];
+    return nil;
 }
 
 - (void) updateUI {
@@ -67,13 +88,9 @@
             description = [NSString stringWithFormat:@"%@ don't match. %lu point penalty!", description, -self.game.lastScore];
         }
         
-        [self.descriptionHistory addObject:description];
-        self.historySlider.maximumValue = self.descriptionHistory.count;
-        self.historySlider.value = self.descriptionHistory.count;
+        [self.descriptionHistory addObject: [[NSAttributedString alloc] initWithString:description]];
     }
     else {
-        self.historySlider.value = 0;
-        self.historySlider.maximumValue = 0;
         [self.descriptionHistory removeAllObjects];
     }
     
@@ -90,14 +107,9 @@
     }
 }
 
-- (IBAction)touchMatchMode:(UISegmentedControl *)sender {
-    _game = nil;
-}
-
 - (IBAction)touchRedeal:(UIButton *)sender {
-    _game = nil;
+    self.game = nil;
     [self updateUI];
-    self.matchModeButton.enabled = YES;
 }
 
 - (NSString *)titleForCard: (Card *)card {
@@ -110,7 +122,6 @@
 
 - (IBAction)touchCardButton:(UIButton *)sender
 {
-    self.matchModeButton.enabled = NO;
     NSUInteger chosenButtonIndex = [self.cardButtons indexOfObject:sender];
     [self.game chooseCardAtIndex:chosenButtonIndex];
     [self updateUI];
