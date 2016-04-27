@@ -24,6 +24,7 @@
 }
 
 - (Deck *)createDeck {
+    self.gameType = @"Set Cards";
     return [[SetCardDeck alloc] init];
 }
 
@@ -84,8 +85,11 @@
             [cardButton setBackgroundColor:[UIColor lightGrayColor]];
             [cardButton setBackgroundImage:nil forState:UIControlStateNormal];
         }
-        self.scoreLabel.text = [NSString stringWithFormat:@"Score: %ld", self.game.score];
+        
     }
+    
+    self.scoreLabel.text = [NSString stringWithFormat:@"Score: %ld", self.game.score];
+    self.gameResult.score = self.game.score;
     
     NSMutableAttributedString *description = [[NSMutableAttributedString alloc] init];
     if(self.game.lastChosenCards.count) {
@@ -129,6 +133,7 @@
 - (IBAction)touchRedeal:(UIButton *)sender {
     self.game = nil;
     self.game.cardMatchCount = 3;
+    self.gameResult = nil;
     [self updateUI];
 }
 

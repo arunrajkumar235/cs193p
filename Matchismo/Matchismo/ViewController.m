@@ -9,14 +9,29 @@
 #import "ViewController.h"
 #import "Deck.h"
 #import "HistoryViewController.h"
+#import "GameSettings.h"
+
 
 @interface ViewController ()
 @property (nonatomic) Deck *deck;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *showHistoryBarButton;
-
+@property (strong, nonatomic) GameSettings *gameSettings;
 @end
 
 @implementation ViewController
+
+- (GameResult *)gameResult
+{
+    if (!_gameResult) _gameResult = [[GameResult alloc] init];
+    _gameResult.gameType = self.gameType;
+    return _gameResult;
+}
+
+- (GameSettings *)gameSettings
+{
+    if (!_gameSettings) _gameSettings = [[GameSettings alloc] init];
+    return _gameSettings;
+}
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([segue.identifier isEqualToString:@"Show History"]) {
@@ -32,18 +47,23 @@
             }
             
             hvc.navigationItem.title = @"History";
-            [hvc setHidesBottomBarWhenPushed: YES];
+            //[hvc setHidesBottomBarWhenPushed: YES];
             hvc.historyText = historyText;
         }
     }
-    
-    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.flipDescription setText: @""];
     [self updateUI];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.game.matchBonus = self.gameSettings.matchBonus;
+    self.game.mismatchPenalty = self.gameSettings.mismatchPenalty;
+    self.game.flipCost = self.gameSettings.flipCost;
 }
 
 - (NSMutableArray *) descriptionHistory {
@@ -55,6 +75,9 @@
     if(!_game) {
         _game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count]
                                                   usingDeck:[self createDeck]];
+        _game.matchBonus = self.gameSettings.matchBonus;
+        _game.mismatchPenalty = self.gameSettings.mismatchPenalty;
+        _game.flipCost = self.gameSettings.flipCost;
     }
     return _game;
 }
@@ -71,6 +94,7 @@
         [cardButton setBackgroundImage:[self backgroundImageForCard:card] forState:UIControlStateNormal];
         [cardButton setEnabled:!card.isMatched];
         self.scoreLabel.text = [NSString stringWithFormat:@"Score: %ld", self.game.score];
+        self.gameResult.score = self.game.score;
     }
     
     NSString *description = @"";
@@ -109,6 +133,7 @@
 
 - (IBAction)touchRedeal:(UIButton *)sender {
     self.game = nil;
+    self.gameResult = nil;
     [self updateUI];
 }
 

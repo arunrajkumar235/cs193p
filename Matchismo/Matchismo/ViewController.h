@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CardMatchingGame.h"
+#import "GameResult.h"
 
 @interface ViewController : UIViewController
 
@@ -19,5 +20,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *flipDescription;
 
 @property (strong, nonatomic) NSMutableArray *descriptionHistory;
+
+@property (strong, nonatomic) NSString *gameType;
+@property (strong, nonatomic) GameResult *gameResult;
 
 @end

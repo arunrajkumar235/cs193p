@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F038CC762CB2A1ED955D63A /* libPods-Matchismo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 138B048570EA93E30D73D207 /* libPods-Matchismo.a */; };
 		F41F7C311CC64E8F0071A6CB /* SetCard.m in Sources */ = {isa = PBXBuildFile; fileRef = F41F7C301CC64E8F0071A6CB /* SetCard.m */; };
 		F41F7C341CC657C40071A6CB /* SetCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = F41F7C331CC657C40071A6CB /* SetCardDeck.m */; };
 		F44C48FD1CCA8F3B0009F0F1 /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F44C48FC1CCA8F3B0009F0F1 /* HistoryViewController.m */; };
+		F454BE5E1CCF39A500403763 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F454BE5D1CCF39A500403763 /* ChatViewController.m */; };
+		F454BE611CD05C8A00403763 /* HighScoresViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F454BE601CD05C8A00403763 /* HighScoresViewController.m */; };
 		F45F933B1CBE175E000B9220 /* CardMatchingGame.m in Sources */ = {isa = PBXBuildFile; fileRef = F45F933A1CBE175E000B9220 /* CardMatchingGame.m */; };
 		F4CE656A1CC5BBFC00CD9FE1 /* PlayingCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4CE65691CC5BBFC00CD9FE1 /* PlayingCardViewController.m */; };
 		F4CE656D1CC6369000CD9FE1 /* SetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4CE656C1CC6369000CD9FE1 /* SetViewController.m */; };
@@ -23,15 +26,25 @@
 		F4D4823C1CBC812E009EE534 /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D4823B1CBC812E009EE534 /* Deck.m */; };
 		F4D4823F1CBC8862009EE534 /* PlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D4823E1CBC8862009EE534 /* PlayingCard.m */; };
 		F4D482421CBCB010009EE534 /* PlayingCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D482411CBCB010009EE534 /* PlayingCardDeck.m */; };
+		F4DE7C611CCB7CDF0011016B /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DE7C601CCB7CDF0011016B /* SettingsViewController.m */; };
+		F4DE7C641CCB7EE20011016B /* GameSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DE7C631CCB7EE20011016B /* GameSettings.m */; };
+		F4DE7C671CCE153A0011016B /* GameResult.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DE7C661CCE153A0011016B /* GameResult.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		138B048570EA93E30D73D207 /* libPods-Matchismo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Matchismo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B47300C773D96AD41BC9087 /* Pods-Matchismo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Matchismo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Matchismo/Pods-Matchismo.debug.xcconfig"; sourceTree = "<group>"; };
+		E119791C06D0E9FA0A517A5B /* Pods-Matchismo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Matchismo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Matchismo/Pods-Matchismo.release.xcconfig"; sourceTree = "<group>"; };
 		F41F7C2F1CC64E8F0071A6CB /* SetCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SetCard.h; path = Matchismo/Model/SetCard.h; sourceTree = "<group>"; };
 		F41F7C301CC64E8F0071A6CB /* SetCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SetCard.m; path = Matchismo/Model/SetCard.m; sourceTree = "<group>"; };
 		F41F7C321CC657C40071A6CB /* SetCardDeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SetCardDeck.h; path = Matchismo/Model/SetCardDeck.h; sourceTree = "<group>"; };
 		F41F7C331CC657C40071A6CB /* SetCardDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SetCardDeck.m; path = Matchismo/Model/SetCardDeck.m; sourceTree = "<group>"; };
 		F44C48FB1CCA8F3A0009F0F1 /* HistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryViewController.h; sourceTree = "<group>"; };
 		F44C48FC1CCA8F3B0009F0F1 /* HistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryViewController.m; sourceTree = "<group>"; };
+		F454BE5C1CCF39A500403763 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
+		F454BE5D1CCF39A500403763 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
+		F454BE5F1CD05C8A00403763 /* HighScoresViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScoresViewController.h; sourceTree = "<group>"; };
+		F454BE601CD05C8A00403763 /* HighScoresViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScoresViewController.m; sourceTree = "<group>"; };
 		F45F93391CBE175E000B9220 /* CardMatchingGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CardMatchingGame.h; path = Matchismo/Model/CardMatchingGame.h; sourceTree = "<group>"; };
 		F45F933A1CBE175E000B9220 /* CardMatchingGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CardMatchingGame.m; path = Matchismo/Model/CardMatchingGame.m; sourceTree = "<group>"; };
 		F4CE65681CC5BBFC00CD9FE1 /* PlayingCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayingCardViewController.h; sourceTree = "<group>"; };
@@ -56,6 +69,12 @@
 		F4D4823E1CBC8862009EE534 /* PlayingCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayingCard.m; path = Matchismo/Model/PlayingCard.m; sourceTree = "<group>"; };
 		F4D482401CBCB010009EE534 /* PlayingCardDeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayingCardDeck.h; path = Matchismo/Model/PlayingCardDeck.h; sourceTree = "<group>"; };
 		F4D482411CBCB010009EE534 /* PlayingCardDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayingCardDeck.m; path = Matchismo/Model/PlayingCardDeck.m; sourceTree = "<group>"; };
+		F4DE7C5F1CCB7CDF0011016B /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		F4DE7C601CCB7CDF0011016B /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		F4DE7C621CCB7EE20011016B /* GameSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameSettings.h; path = Matchismo/Model/GameSettings.h; sourceTree = "<group>"; };
+		F4DE7C631CCB7EE20011016B /* GameSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameSettings.m; path = Matchismo/Model/GameSettings.m; sourceTree = "<group>"; };
+		F4DE7C651CCE153A0011016B /* GameResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameResult.h; path = Matchismo/Model/GameResult.h; sourceTree = "<group>"; };
+		F4DE7C661CCE153A0011016B /* GameResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameResult.m; path = Matchismo/Model/GameResult.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,18 +82,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F038CC762CB2A1ED955D63A /* libPods-Matchismo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C122022C364DDD75D228390 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9B47300C773D96AD41BC9087 /* Pods-Matchismo.debug.xcconfig */,
+				E119791C06D0E9FA0A517A5B /* Pods-Matchismo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7068BCB2E7A3C6BABF7E5CC6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				138B048570EA93E30D73D207 /* libPods-Matchismo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F4D482131CBBC448009EE534 = {
 			isa = PBXGroup;
 			children = (
 				F4D482391CBC80EF009EE534 /* Model */,
 				F4D4821E1CBBC448009EE534 /* Matchismo */,
 				F4D4821D1CBBC448009EE534 /* Products */,
+				2C122022C364DDD75D228390 /* Pods */,
+				7068BCB2E7A3C6BABF7E5CC6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -94,6 +133,8 @@
 				F4D482251CBBC448009EE534 /* ViewController.h */,
 				F4D482261CBBC448009EE534 /* ViewController.m */,
 				F4D482281CBBC448009EE534 /* Main.storyboard */,
+				F4DE7C5F1CCB7CDF0011016B /* SettingsViewController.h */,
+				F4DE7C601CCB7CDF0011016B /* SettingsViewController.m */,
 				F4D4822B1CBBC448009EE534 /* Assets.xcassets */,
 				F4D4822D1CBBC448009EE534 /* LaunchScreen.storyboard */,
 				F4D482301CBBC448009EE534 /* Info.plist */,
@@ -104,6 +145,10 @@
 				F4CE656C1CC6369000CD9FE1 /* SetViewController.m */,
 				F44C48FB1CCA8F3A0009F0F1 /* HistoryViewController.h */,
 				F44C48FC1CCA8F3B0009F0F1 /* HistoryViewController.m */,
+				F454BE5C1CCF39A500403763 /* ChatViewController.h */,
+				F454BE5D1CCF39A500403763 /* ChatViewController.m */,
+				F454BE5F1CD05C8A00403763 /* HighScoresViewController.h */,
+				F454BE601CD05C8A00403763 /* HighScoresViewController.m */,
 			);
 			path = Matchismo;
 			sourceTree = "<group>";
@@ -133,6 +178,10 @@
 				F41F7C301CC64E8F0071A6CB /* SetCard.m */,
 				F41F7C321CC657C40071A6CB /* SetCardDeck.h */,
 				F41F7C331CC657C40071A6CB /* SetCardDeck.m */,
+				F4DE7C621CCB7EE20011016B /* GameSettings.h */,
+				F4DE7C631CCB7EE20011016B /* GameSettings.m */,
+				F4DE7C651CCE153A0011016B /* GameResult.h */,
+				F4DE7C661CCE153A0011016B /* GameResult.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -144,9 +193,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F4D482331CBBC448009EE534 /* Build configuration list for PBXNativeTarget "Matchismo" */;
 			buildPhases = (
+				65D2CA86E65CE8D7EFD18B08 /* Check Pods Manifest.lock */,
 				F4D482181CBBC448009EE534 /* Sources */,
 				F4D482191CBBC448009EE534 /* Frameworks */,
 				F4D4821A1CBBC448009EE534 /* Resources */,
+				C10265BB2C080563ECDB9EF1 /* Embed Pods Frameworks */,
+				65E093E07FC62C7E344F3E39 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -202,24 +254,77 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		65D2CA86E65CE8D7EFD18B08 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		65E093E07FC62C7E344F3E39 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Matchismo/Pods-Matchismo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C10265BB2C080563ECDB9EF1 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Matchismo/Pods-Matchismo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F4D482181CBBC448009EE534 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4DE7C671CCE153A0011016B /* GameResult.m in Sources */,
 				F4D4823F1CBC8862009EE534 /* PlayingCard.m in Sources */,
 				F4D4823C1CBC812E009EE534 /* Deck.m in Sources */,
 				F4CE656A1CC5BBFC00CD9FE1 /* PlayingCardViewController.m in Sources */,
+				F4DE7C641CCB7EE20011016B /* GameSettings.m in Sources */,
 				F4CE656D1CC6369000CD9FE1 /* SetViewController.m in Sources */,
 				F4D482271CBBC448009EE534 /* ViewController.m in Sources */,
 				F41F7C311CC64E8F0071A6CB /* SetCard.m in Sources */,
 				F44C48FD1CCA8F3B0009F0F1 /* HistoryViewController.m in Sources */,
+				F454BE611CD05C8A00403763 /* HighScoresViewController.m in Sources */,
 				F4D482241CBBC448009EE534 /* AppDelegate.m in Sources */,
 				F45F933B1CBE175E000B9220 /* CardMatchingGame.m in Sources */,
 				F4D482421CBCB010009EE534 /* PlayingCardDeck.m in Sources */,
 				F41F7C341CC657C40071A6CB /* SetCardDeck.m in Sources */,
 				F4D482211CBBC448009EE534 /* main.m in Sources */,
+				F454BE5E1CCF39A500403763 /* ChatViewController.m in Sources */,
 				F4D482381CBC0BCD009EE534 /* Card.m in Sources */,
+				F4DE7C611CCB7CDF0011016B /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,6 +434,7 @@
 		};
 		F4D482341CBBC448009EE534 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9B47300C773D96AD41BC9087 /* Pods-Matchismo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Matchismo/Info.plist;
@@ -340,6 +446,7 @@
 		};
 		F4D482351CBBC448009EE534 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E119791C06D0E9FA0A517A5B /* Pods-Matchismo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Matchismo/Info.plist;
