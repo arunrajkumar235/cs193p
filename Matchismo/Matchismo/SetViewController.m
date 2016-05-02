@@ -28,8 +28,6 @@
     return [[SetCardDeck alloc] init];
 }
 
-
-
 - (NSAttributedString *)titleForCard: (Card *)card {
     SetCard *setCard = (SetCard *)card;
     NSString *title = [[NSString alloc] init];
@@ -59,16 +57,14 @@
         
     }
     
-    
-    
     NSAttributedString *titleAttrStr = [[NSAttributedString alloc] initWithString: title  attributes: attrDict];
     
     return titleAttrStr;
 }
 
 - (void) updateUI {
-    for(UIButton * cardButton in self.cardButtons) {
-        NSUInteger cardButtonIndex = [self.cardButtons indexOfObject:cardButton];
+    for(UIButton * cardButton in self.cardViews) {
+        NSUInteger cardButtonIndex = [self.cardViews indexOfObject:cardButton];
         Card *card = [self.game cardAtIndex:cardButtonIndex];
         
         if(card.isChosen){
@@ -90,44 +86,6 @@
     
     self.scoreLabel.text = [NSString stringWithFormat:@"Score: %ld", self.game.score];
     self.gameResult.score = self.game.score;
-    
-    NSMutableAttributedString *description = [[NSMutableAttributedString alloc] init];
-    if(self.game.lastChosenCards.count) {
-        NSAttributedString *delimiter = [[NSAttributedString alloc] initWithString:@" "];
-        for(SetCard *setCard in self.game.lastChosenCards) {
-            if(description.length) {
-                [description appendAttributedString:delimiter];
-            }
-            [description appendAttributedString:[self titleForCard:setCard]];
-        }
-        
-        NSMutableAttributedString *str1=nil, *str2=nil;
-        
-        NSMutableAttributedString *resultDescription = [[NSMutableAttributedString alloc] init];
-        if(self.game.lastScore > 0) {
-            str1 = [[NSMutableAttributedString alloc] initWithString:@"Matched "];
-            str2 = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@" for %lu points.", self.game.lastScore]];
-            [resultDescription appendAttributedString:str1];
-            [resultDescription appendAttributedString:description];
-            [resultDescription appendAttributedString:str2];
-        }
-        else if(self.game.lastScore<0){
-            str1 = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@" don't match. %lu point penalty!", -self.game.lastScore] ];
-            
-            [resultDescription appendAttributedString:description];
-            [resultDescription appendAttributedString:str1];
-        }
-        if(resultDescription.length) {
-            [description setAttributedString:resultDescription];
-        }
-        
-        [self.descriptionHistory addObject:description];
-    }
-    else {
-        [self.descriptionHistory removeAllObjects];
-    }
-    
-    [self.flipDescription setAttributedText:description];
 }
 
 - (IBAction)touchRedeal:(UIButton *)sender {

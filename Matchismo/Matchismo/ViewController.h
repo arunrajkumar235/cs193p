@@ -13,13 +13,10 @@
 @interface ViewController : UIViewController
 
 @property (strong, nonatomic) CardMatchingGame *game;
+@property (strong, nonatomic) IBOutletCollection(UIView) NSArray *cardViews;
 
-@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
+
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
-
-@property (weak, nonatomic) IBOutlet UILabel *flipDescription;
-
-@property (strong, nonatomic) NSMutableArray *descriptionHistory;
 
 @property (strong, nonatomic) NSString *gameType;
 @property (strong, nonatomic) GameResult *gameResult;
